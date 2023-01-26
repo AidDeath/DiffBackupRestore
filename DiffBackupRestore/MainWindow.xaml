@@ -1,0 +1,101 @@
+﻿<Window x:Class="DiffBackupRestore.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DiffBackupRestore"
+        mc:Ignorable="d"
+        Title="Восстановление бэкапа" Height="319" Width="623">
+    <Window.Resources>
+        
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" Margin="5" Width="Auto">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox Name="FilePathTextBox"  IsReadOnly="True" Text="Укажите путь к полной копии"/>
+                    <Button Name="SelectFolderButton" Grid.Column="1" Content="..." Width="25" Click="SelectFolderButton_Click" IsEnabled="False"/>
+                </Grid>
+                <ListView Name="BackupInfoListView" Grid.Row="1" SelectionChanged="BackupInfoListView_SelectionChanged">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn DisplayMemberBinding="{Binding DatabaseName}" Header="База данных"/>
+                            <GridViewColumn DisplayMemberBinding="{Binding BackupDate, StringFormat=dd.MM.yyyy HH:mm:ss}" Header="Время"/>
+                            <GridViewColumn DisplayMemberBinding="{Binding FileName}" Header="Файл"/>
+                            
+                            <!--<GridViewColumn DisplayMemberBinding="{Binding RecoveryForkId}" Header="RecoveryForkId"/>
+                            <GridViewColumn DisplayMemberBinding="{Binding BindingId}" Header="BindingId"/>-->
+
+                            <!--<GridViewColumn DisplayMemberBinding="{Binding FirstLsn}" Header="FirstLsn"/>
+                            <GridViewColumn DisplayMemberBinding="{Binding LastLsn}" Header="LastLsn"/>-->
+                            
+                            <!--<GridViewColumn DisplayMemberBinding="{Binding CheckpointLsn}" Header="CheckpointLsn"/>
+                            <GridViewColumn DisplayMemberBinding="{Binding DifferentialBaseLsn}" Header="DiffBaseLsn"/>-->
+                            
+                            
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+
+            </Grid>
+            
+            
+            <StatusBar Grid.Row="1" DockPanel.Dock="Bottom">
+                <StatusBarItem>
+                    <TextBlock>
+                        <Run Text="Соединение:" FontWeight="Bold"/>
+                        <Run Name="StatusMessage" Text="необходима проверка" Background="Azure"/>
+                    </TextBlock>
+                </StatusBarItem>
+                <StatusBarItem HorizontalAlignment="Right">
+                    <Button Name="HelpButton" Content="Cправка" Click="HelpButton_Click"/>
+                </StatusBarItem>
+            </StatusBar>
+        </Grid>
+        
+
+        <GroupBox Grid.Row="0" Grid.Column="1" Margin="5" Header="Параметры для подключения" >
+            <StackPanel>
+                <StackPanel>
+                    <Label Content="Сервер \ экземпляр"/>
+                    <TextBox Name="ServerName"/>
+                </StackPanel>
+                <StackPanel>
+                    <Label Content="Имя пользователя"/>
+                    <TextBox Name="UserName"/>
+                </StackPanel>
+                <StackPanel>
+                    <Label Content="Пароль"/>
+                    <PasswordBox Name="Password"/>
+                </StackPanel>
+
+                <Button Name="TestConnButton" Click="TestConnButton_Click" Margin="5,10,5,2" Content="Установить соединение"/>
+                <Button Name="CloseConnButton" Click="CloseConnButton_Click" Margin="5,2" Content="Разорвать соединение" Visibility="Hidden"/>
+            </StackPanel>
+        </GroupBox>
+
+        <Button Name="ExecuteRecoveryButton" Grid.Row="1" Grid.Column="1" Click="ExecuteRecoveryButton_Click" Margin="5" Content="Восстановить" IsEnabled="False"></Button>
+
+    </Grid>
+</Window>
