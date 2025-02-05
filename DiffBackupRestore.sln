@@ -5,6 +5,8 @@ VisualStudioVersion = 17.3.32922.545
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiffBackupRestore", "DiffBackupRestore\DiffBackupRestore.csproj", "{0ADB34B7-8B30-4D40-BE68-D12D70D115A1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiffBackupRestoreWF", "DiffBackupRestoreWF\DiffBackupRestoreWF.csproj", "{53D3E30D-70DA-4DEE-AA4B-7221FEF326F0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{0ADB34B7-8B30-4D40-BE68-D12D70D115A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0ADB34B7-8B30-4D40-BE68-D12D70D115A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0ADB34B7-8B30-4D40-BE68-D12D70D115A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53D3E30D-70DA-4DEE-AA4B-7221FEF326F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53D3E30D-70DA-4DEE-AA4B-7221FEF326F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53D3E30D-70DA-4DEE-AA4B-7221FEF326F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53D3E30D-70DA-4DEE-AA4B-7221FEF326F0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
